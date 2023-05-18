@@ -1,4 +1,4 @@
-package com.example.test345;
+package com.example.test345.Classes;
 
 public class Product {
     private String productName;

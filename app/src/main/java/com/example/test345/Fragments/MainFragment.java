@@ -1,4 +1,4 @@
-package com.example.test345;
+package com.example.test345.Fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import com.example.test345.Activities.AddProductActivity;
+import com.example.test345.Activities.AllProductsActivity;
+import com.example.test345.R;
 
 public class MainFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";

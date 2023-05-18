@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProductActivity">
+    tools:context=".Activities.AddProductActivity">
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAddaLL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
@@ -63,7 +63,7 @@
         android:ems="10"
         android:hint="Price"
         android:inputType="numberSigned"
-        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddaLL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBrand" />
 

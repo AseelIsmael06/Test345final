@@ -1,4 +1,4 @@
-package com.example.test345;
+package com.example.test345.Activities;
 
 import static android.content.ContentValues.TAG;
 
@@ -17,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.test345.Classes.FirebaseServices;
+import com.example.test345.Classes.Product;
+import com.example.test345.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -140,7 +143,7 @@ public class AddProductActivity extends AppCompatActivity {
         ProductPicture = findViewById(R.id.etImage);
         Price = findViewById(R.id.etProductPrice);
         Brand = findViewById(R.id.etBrand);
-        Add = findViewById(R.id.btnAdd);
+        Add = findViewById(R.id.btnAddaLL);
         fbs = FirebaseServices.getInstance();
         ProductPicture.setOnClickListener(new View.OnClickListener() {
             @Override
