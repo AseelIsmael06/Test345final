@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.example.test345.Activities.AllProductsActivity;
 import com.example.test345.Classes.FirebaseServices;
 import com.example.test345.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -93,9 +93,9 @@ public class SignUpFragment extends Fragment
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
-                            Intent i = new Intent(getActivity(), AllProductsActivity.class);
-                            startActivity(i);
-                            ((Activity) getActivity()).overridePendingTransition(0, 0);
+                        AllProductsFragment AllProductsFragment = new AllProductsFragment();
+                        FragmentManager manager = getFragmentManager();
+                        manager.beginTransaction().replace(R.id.FrameLayout, AllProductsFragment, AllProductsFragment.getTag()).commit();
 
                     }
                 });

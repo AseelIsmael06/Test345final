@@ -1,5 +1,6 @@
 package com.example.test345.Classes;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<Product> ProductList;
 
-    public RecyclerViewAdapter(List<Product> ProductList) {
+    public RecyclerViewAdapter(Context context, List<Product> ProductList) {
         this.ProductList = ProductList;
     }
 
@@ -59,5 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+
 
 

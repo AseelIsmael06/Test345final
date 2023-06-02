@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.test345.Activities.AddProductActivity;
-import com.example.test345.Activities.AllProductsActivity;
 import com.example.test345.R;
 
 public class MainFragment extends Fragment {
@@ -85,20 +84,21 @@ public class MainFragment extends Fragment {
                 manager.beginTransaction().replace(R.id.FrameLayout, LogInFragment, LogInFragment.getTag()).commit();
             }
         });
-        //TRANS FROM FRAGMENT TO ACTIVITY BY BUTTON CLICK
 
+        All.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AllProductsFragment AllProductsFragment = new AllProductsFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.FrameLayout, AllProductsFragment, AllProductsFragment.getTag()).commit();
+            }
+        });
+        //TRANS FROM FRAGMENT TO ACTIVITY BY BUTTON CLICK
         AddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), AddProductActivity.class);
-                startActivity(i);
-                ((Activity) getActivity()).overridePendingTransition(0, 0);
-            }
-        });
-        All.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), AllProductsActivity.class);
                 startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0, 0);
             }
