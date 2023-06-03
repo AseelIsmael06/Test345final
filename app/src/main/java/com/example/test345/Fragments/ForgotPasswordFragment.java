@@ -14,6 +14,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.test345.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -41,19 +43,43 @@ public class ForgotPasswordFragment extends Fragment
                         Toast.makeText(getContext(), "SOMETHING FAILED ! " + "", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(getContext(), "Email Has send" + "", Toast.LENGTH_SHORT).show();
-                           LogInFragment LogInFragment=new LogInFragment();
-                            FragmentManager manager=getFragmentManager();
-                            manager.beginTransaction().replace(R.id.FrameLayout,LogInFragment,LogInFragment.getTag()).commit();
-                        }
-                    });
+                    resetPassword();
                 }
             });
         }
-        public ForgotPasswordFragment() {
+
+    private void resetPassword(){
+        try{
+            if(!etEmailforgot.getText().toString().isEmpty())
+                mAuth.sendPasswordResetEmail(etEmailforgot.getText().toString())
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(getContext(), "Password reset email has been sent.", Toast.LENGTH_SHORT).show();
+                                LogInFragment LogInFragment=new LogInFragment();
+                                FragmentManager manager=getFragmentManager();
+                                manager.beginTransaction()
+                                        .replace(R.id.FrameLayout,LogInFragment,LogInFragment.getTag())
+                                        .commit();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), "Password reset failed.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            else{
+                Toast.makeText(getContext(), "Missing fields identified.", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+        catch(Exception e){
+            Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public ForgotPasswordFragment() {
             // Required empty public constructor
         }
         public static ForgotPasswordFragment newInstance(String param1, String param2) {
