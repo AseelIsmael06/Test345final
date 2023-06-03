@@ -19,8 +19,8 @@
 
     <EditText
         android:id="@+id/etInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="23dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -31,8 +31,8 @@
 
     <EditText
         android:id="@+id/etProductName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="63dp"
         android:layout_marginStart="56dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
@@ -44,8 +44,8 @@
 
     <EditText
         android:id="@+id/etBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="222dp"
+        android:layout_height="81dp"
         android:layout_marginBottom="91dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -69,8 +69,8 @@
 
     <ImageButton
         android:id="@+id/etImage"
-        android:layout_width="185dp"
-        android:layout_height="0dp"
+        android:layout_width="188dp"
+        android:layout_height="73dp"
         android:layout_marginStart="103dp"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="51dp"

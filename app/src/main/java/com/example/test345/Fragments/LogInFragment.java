@@ -87,8 +87,9 @@ public class LogInFragment extends Fragment
         ivGoToMainLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MainActivity.class);
-                startActivity(i);
+                MainFragment MainFragment = new MainFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.FrameLayout, MainFragment, MainFragment.getTag()).commit();
             }
         });
         btnForgetPassword.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +98,7 @@ public class LogInFragment extends Fragment
             {
                 ForgotPasswordFragment ForgotPasswordFragment = new ForgotPasswordFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.btnForgetPassword, ForgotPasswordFragment, ForgotPasswordFragment.getTag()).commit();
+                manager.beginTransaction().replace(R.id.FrameLayout, ForgotPasswordFragment, ForgotPasswordFragment.getTag()).commit();
             }
         });
         btnLogin = getView().findViewById(R.id.btnLogin);

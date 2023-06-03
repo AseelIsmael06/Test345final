@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public class SignUpFragment extends Fragment
 {
     private Button btnSignUpSIGNUP;
+      private ImageButton Goprevious;
     private EditText etUsernameSIGNUP,etPasswordSIGNUP;
     private FirebaseServices fbs;
     // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +35,7 @@ public class SignUpFragment extends Fragment
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public SignUpFragment() {
         // Required empty public constructor
@@ -78,6 +81,15 @@ public class SignUpFragment extends Fragment
         fbs=FirebaseServices.getInstance();
         etPasswordSIGNUP = getView().findViewById(R.id.etPasswordSIGNUP);
         btnSignUpSIGNUP = getView().findViewById(R.id.btnSignUpSIGNUP);
+        Goprevious=getView().findViewById(R.id.ivGoToMainSignUp);
+        Goprevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainFragment MainFragment = new MainFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.FrameLayout, MainFragment, MainFragment.getTag()).commit();
+            }
+        });
         btnSignUpSIGNUP.setOnClickListener(new View.OnClickListener()
         {
             @Override
